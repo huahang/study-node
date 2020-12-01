@@ -4,7 +4,10 @@
   "description": "study node.js",
   "main": "index.js",
   "scripts": {
+    "client": "tsnd client.ts",
+    "server": "tsnd server.ts",
     "study-looper": "tsnd study-looper.ts",
+    "study-logical-or": "tsnd study-logical-or.ts",
     "test": "jest"
   },
   "repository": {
