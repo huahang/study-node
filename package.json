@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/huahang/study-node#readme",
   "dependencies": {
-    "@huahang/stream-to-pull-stream": "^0.0.7",
+    "@huahang/stream-to-pull-stream": "0.2.3",
     "@jacobbubu/looper": "^1.0.0",
     "@jacobbubu/pull-pushable-duplex": "^1.2.0",
     "@jacobbubu/pull-stream-protocol-checker": "^1.0.0",

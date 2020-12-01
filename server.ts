@@ -1,11 +1,10 @@
 import * as Net from 'net';
 import * as Pull from 'pull-stream';
+import * as ToPull from '@huahang/stream-to-pull-stream';
 import { MessageDecoder, MessageEncoder } from './codec';
 import { Delay } from './delay';
 import { PushableDuplex } from '@jacobbubu/pull-pushable-duplex'
 import Checker from '@jacobbubu/pull-stream-protocol-checker'
-
-const ToPull = require('stream-to-pull-stream');
 
 let port: number = 8080
 let server: Net.Server = new Net.Server()
@@ -14,8 +13,8 @@ server.listen(port, function () {
         'Server listening for connection requests on socket localhost: ' + port
     )
 });
-let clientCount: number = 0
 
+let clientCount: number = 0
 server.on('connection', function (socket: Net.Socket) {
     clientCount++
     console.log(`Client #${clientCount} connected.`)

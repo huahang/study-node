@@ -1,19 +1,13 @@
 import * as Net from 'net';
 import * as Readline from 'readline';
 import * as Pull from 'pull-stream';
+import * as ToPull from '@huahang/stream-to-pull-stream';
 import { MessageDecoder, MessageEncoder } from './codec';
 import { PushableDuplex } from '@jacobbubu/pull-pushable-duplex'
 import Checker from '@jacobbubu/pull-stream-protocol-checker'
 
-const ToPull = require('stream-to-pull-stream');
-
 let port: number = 8080
-
 let client: Net.Socket = new Net.Socket()
-
-type ClientState = 'disconnected' | 'connected' | 'connecting'
-
-let clientState: ClientState = 'disconnected'
 
 client.on('error', (err: Error) => {
     console.log(`Hit an error! ${err}`)
