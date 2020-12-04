@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint './**/*.ts'",
+    "async-model": "tsnd async-model.ts",
     "client": "tsnd client.ts",
     "server": "tsnd server.ts",
     "study-looper": "tsnd study-looper.ts",
