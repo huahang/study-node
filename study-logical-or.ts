@@ -1,5 +1,5 @@
-let a = true
-let b = new Error('an error')
+const a = true;
+const b = new Error("an error");
 
-console.log(a || b)
-console.log(b || a)
+console.log(a || b);
+console.log(b || a);

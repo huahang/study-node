@@ -1,10 +1,10 @@
-import looper from '@jacobbubu/looper'
+import looper from "@jacobbubu/looper";
 
-let next = looper(() => {
-  console.log(`Time: ${new Date()}`)
+const next = looper(() => {
+  console.log(`Time: ${new Date()}`);
   // async
-  setTimeout(next, 1000)
+  setTimeout(next, 1000);
   // sync
   // next()
-})
-next()
+});
+next();
