@@ -20,13 +20,14 @@ const main = async () => {
   const s1 = a.createStream({ name: "a->b" });
   const s2 = b.createStream({ name: "b->a" });
 
-  const now = Date.now();
-  const s1Id = a.id + "/" + s1.name;
-  const s2Id = b.id + "/" + s2.name;
+  const now: number = Date.now();
+  const s1Id: string = a.id + "/" + s1.name;
+  const s2Id: string = b.id + "/" + s2.name;
   streamStats[s1Id] = { startedAt: now };
   streamStats[s2Id] = { startedAt: now };
 
   a.set("foo", "changed by A");
+  b.set("foo", "changed by B");
 
   const receivingFn = (
     update: Update,
@@ -58,24 +59,24 @@ const main = async () => {
     stats[id].lastSentPayload = update;
   };
 
-  s1.on("updateSent", (_, update, counter, id) => {
+  s1.on("updateSent", (_, update: Update, counter: number, id: string) => {
     sentFn(update, counter, id, streamStats);
     console.log(`updateSent@${id}:`, streamStats);
   });
 
-  s1.on("updateReceived", (_, update, counter, id) => {
+  s1.on("updateReceived", (_, update: Update, counter: number, id: string) => {
     receivingFn(update, counter, id, streamStats);
-    console.log(`updateSent@${id}:`, streamStats);
+    console.log(`updateReceived@${id}:`, streamStats);
   });
 
-  s2.on("updateSent", (_, update, counter, id) => {
+  s2.on("updateSent", (_, update: Update, counter: number, id: string) => {
     sentFn(update, counter, id, streamStats);
     console.log(`updateSent@${id}:`, streamStats);
   });
 
-  s2.on("updateReceived", (_, update, counter, id) => {
+  s2.on("updateReceived", (_, update: Update, counter: number, id: string) => {
     receivingFn(update, counter, id, streamStats);
-    console.log(`updateSent@${id}:`, streamStats);
+    console.log(`updateReceived@${id}:`, streamStats);
   });
 
   link(s1, s2);
