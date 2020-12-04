@@ -4,7 +4,7 @@
   "description": "study node.js",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint './**/*.ts'",
+    "lint": "eslint './**/*.ts' --fix",
     "async-model": "tsnd async-model.ts",
     "client": "tsnd client.ts",
     "server": "tsnd server.ts",
